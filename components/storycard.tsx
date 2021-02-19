@@ -2,7 +2,7 @@
 import Card from 'react-bootstrap/Card'
 import Button from 'react-bootstrap/Button'
 import Link from "next/link"
-import "./card.module.css"
+
 
 
 export default function Header(props){
