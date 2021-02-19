@@ -54,7 +54,7 @@ export default function Navigation (props){
         {/*Note that in this div we will use a ternary operator to decide whether or not to display the content of the div  */}
         <div
           className={`${
-            active ? '' : 'hidden'
+            active ? 'hidden' : ''
           }   w-full lg:w-auto  `}
         >
           {/* nav-beginning*/}
@@ -64,7 +64,7 @@ export default function Navigation (props){
            onClick={handleAboutButton}
            >{props.navigation[0].title}
           <ul className={`${ 
-            activeAbout ? '' : ' hidden transform scale-0 transition-all duration-150 ease-in-out group-hover:scale-100  '
+            activeAbout ? '' : ' hidden '
           }  w-full lg:w-auto`}>
             <li className="  lg:absolute">{props.navigation[4].title}</li>
             <li className="  lg:absolute lg:mt-6 sm:mt-0">{props.navigation[5].title}</li>
