@@ -1,0 +1,9 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+.mobile-button{
+  @apply  p-3 hover:bg-green-600 rounded lg:hidden text-white ml-auto hover:text-white outline-none;
+}
+
