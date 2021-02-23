@@ -2,8 +2,27 @@
 @tailwind components;
 @tailwind utilities;
 
-
-.mobile-button{
-  @apply  p-3 hover:bg-green-600 rounded lg:hidden text-white ml-auto hover:text-white outline-none;
+.mobile-button {
+  @apply p-3 hover:bg-green-600 rounded lg:hidden text-white ml-auto hover:text-white outline-none;
 }
 
+.button-hover {
+  @apply hover:bg-green-600 hover:text-white;
+}
+
+.nav {
+  @apply transform
+  duration-500 
+  overflow-x-hidden
+  -translate-y-44
+  bg-green-400;
+}
+
+.active {
+  @apply transform
+  duration-500
+  translate-y-0
+  w-full
+ 
+  z-10;
+}

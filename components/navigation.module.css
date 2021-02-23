@@ -1,0 +1,14 @@
+.nav {
+  background-color: aqua;
+  width: 100%;
+  position: fixed;
+  transform: translateY(100%);
+}
+
+.nav .active {
+  transform: translate(0);
+}
+
+.navigation {
+  background-color: aqua;
+}

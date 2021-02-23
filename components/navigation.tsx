@@ -1,7 +1,6 @@
 import Link from 'next/link';
 import { useState } from 'react';
-import Nav from 'react-bootstrap/Nav'
-
+// import  "../styles/navigation.module.css";
 // as = what you would liek your link to look like
 // href is the atual path to your template
 // the other normal Link pages will do a static full page reload.
@@ -25,14 +24,15 @@ export default function Navigation (props){
 
     return(
     <>
-    <nav className='flex items-center flex-wrap bg-green-400 p-6'>
+    <nav className="bg-green-400">
          
-    <div className="font-bold text-xl">
+      <div className="flex">
+      <div className="font-bold text-xl">
             <Link  href="/">The Cause collective</Link>
-          </div> 
+     </div> 
        {/* mobile-button */}
         <button
-          className=' inline-flex p-3 hover:bg-green-600 rounded lg:hidden text-white ml-auto hover:text-white outline-none'
+          className='mobile-button'
           onClick={handleMobileButton}
         >
        <svg
@@ -50,45 +50,51 @@ export default function Navigation (props){
             />
           </svg>
         </button>
+      </div>   
+    
        
-        {/*Note that in this div we will use a ternary operator to decide whether or not to display the content of the div  */}
-        <div
+       
+      </nav>
+
+       {/*Note that in this div we will use a ternary operator to decide whether or not to display the content of the div  */}
+       <div
+        // if condition is active= which its flase then use that class other wise use later class
           className={`${
-            active ? 'hidden' : ''
-          }   w-full lg:w-auto  `}
+            active ?  'active overflow-x-hidden': 'nav'
+          } h-full `}
         >
           {/* nav-beginning*/}
-          <ul className=" lg:flex items-center flex-wrap  " >
-           <li className="flex px-4 outline-none  hover:bg-green-600 hover:rounded-lg hover:border-solid">
+          <ul className=" lg:flex" >
+           <li className="button-hover px-3">
            <button
            onClick={handleAboutButton}
            >{props.navigation[0].title}
           <ul className={`${ 
-            activeAbout ? '' : ' hidden '
-          }  w-full lg:w-auto`}>
-            <li className="  lg:absolute">{props.navigation[4].title}</li>
-            <li className="  lg:absolute lg:mt-6 sm:mt-0">{props.navigation[5].title}</li>
+            activeAbout ? '' : 'hidden'
+          }  `}>
+            <li className="  lg:absolute bg-green-400 rounded-sm">{props.navigation[4].title}</li>
+            <li className="  lg:absolute lg:mt-6 sm:mt-0 bg-green-400">{props.navigation[5].title}</li>
           </ul>
          
            </button>
-         
            </li>
-           <li>
+           <li className="button-hover px-3">
            <Link href="/">{props.navigation[1].title}</Link>
            </li>
-           <li>
+           <li className=" button-hover px-3">
            <Link href="/">{props.navigation[2].title}</Link>
            </li>
-           <li>
+           <li className="px-3">
            <Link href="/">{props.navigation[3].title}</Link>
            </li>
         </ul> 
          
         </div>
-      </nav>
     </>
 )
 }
+
+
 
 
   {/* {props.navigation.map(item=>(
