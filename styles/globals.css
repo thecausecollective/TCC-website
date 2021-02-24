@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 .mobile-button {
-  @apply p-3 hover:bg-green-600 rounded lg:hidden text-white ml-auto hover:text-white outline-none;
+  @apply inline-flex p-3 hover:bg-green-600 rounded lg:hidden text-white ml-auto hover:text-white outline-none;
 }
 
 .button-hover {
@@ -11,18 +11,18 @@
 }
 
 .nav {
-  @apply transform
-  duration-500 
-  overflow-x-hidden
+  @apply transform 
+  /* has ul element invisible */
+  invisible
+  duration-150
   -translate-y-44
-  bg-green-400;
+  z-10
+  opacity-0;
 }
 
 .active {
-  @apply transform
-  duration-500
+  @apply transform visible opacity-100
+  duration-150
   translate-y-0
-  w-full
- 
-  z-10;
+  w-full;
 }

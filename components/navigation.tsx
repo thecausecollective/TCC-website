@@ -9,7 +9,7 @@ import { useState } from 'react';
 export default function Navigation (props){
 
   // console.log(props.navigation[0].title)
-  const [active, setActive] = useState(false);
+  const [active, setActive] = useState(true);
 
   const handleMobileButton = () => {
     setActive(!active);
@@ -24,14 +24,14 @@ export default function Navigation (props){
 
     return(
     <>
-    <nav className="bg-green-400">
-         
+    <nav className="bg-green-400 lg:flex">
       <div className="flex">
-      <div className="font-bold text-xl">
-            <Link  href="/">The Cause collective</Link>
-     </div> 
+      <div className="font-bold text-xl px-8">
+            <Link  href="/">The Cause Collective</Link>
+     </div>   
+
        {/* mobile-button */}
-        <button
+       <button
           className='mobile-button'
           onClick={handleMobileButton}
         >
@@ -50,33 +50,37 @@ export default function Navigation (props){
             />
           </svg>
         </button>
-      </div>   
+      </div>
     
-       
-       
-      </nav>
+  
+     
+     
 
-       {/*Note that in this div we will use a ternary operator to decide whether or not to display the content of the div  */}
+         {/*Note that in this div we will use a ternary operator to decide whether or not to display the content of the div  */}
        <div
         // if condition is active= which its flase then use that class other wise use later class
           className={`${
-            active ?  'active overflow-x-hidden': 'nav'
-          } h-full `}
+            active ?  'active': 'nav'
+          } `}
         >
           {/* nav-beginning*/}
-          <ul className=" lg:flex" >
+          <ul className={`${active ?'true': 'hidden'} lg:flex  py-4`} >
            <li className="button-hover px-3">
            <button
            onClick={handleAboutButton}
            >{props.navigation[0].title}
-          <ul className={`${ 
-            activeAbout ? '' : 'hidden'
+           
+           <ul className={`${ 
+            activeAbout ? 'active' : 'nav '
           }  `}>
-            <li className="  lg:absolute bg-green-400 rounded-sm">{props.navigation[4].title}</li>
-            <li className="  lg:absolute lg:mt-6 sm:mt-0 bg-green-400">{props.navigation[5].title}</li>
+          <li className={`${ 
+            activeAbout ? 'active' : 'hidden'
+          } lg:absolute px-3 rounded-sm `}>{props.navigation[4].title}</li>
+            <li className={`${ 
+            activeAbout ? 'active' : 'hidden'
+          } lg:absolute px-3 rounded-sm lg:mt-5 `}>{props.navigation[5].title}</li>
           </ul>
-         
-           </button>
+          </button>
            </li>
            <li className="button-hover px-3">
            <Link href="/">{props.navigation[1].title}</Link>
@@ -90,6 +94,13 @@ export default function Navigation (props){
         </ul> 
          
         </div>
+        
+    
+       
+       
+      </nav>
+
+      
     </>
 )
 }
